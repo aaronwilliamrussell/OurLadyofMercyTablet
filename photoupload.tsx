@@ -31,7 +31,7 @@ const ensureDirExists = async () => {
 	}
 };
 
-export default function App() {
+export default function UploadPics() {
 	const [uploading, setUploading] = useState(false);
 	const [images, setImages] = useState<any[]>([]);
 	console.log("App Deployed");
