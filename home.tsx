@@ -7,7 +7,8 @@ import {
 	ActivityIndicator,
     Pressable,
 	Text,
-	FlatList
+	FlatList,
+    ImageBackground
 } from 'react-native';
 
 export default function Home () {
@@ -88,8 +89,9 @@ const styles = StyleSheet.create({
 
     image:{
     width:2000, 
-    height:250,
-    marginBottom:30,
+    height:256,
+    marginBottom:2,
+    zIndex:1,
     },
 
     image002:{
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
     height:250,
     position: "absolute",
     alignSelf:"center",
-    zIndex: 1,
+    zIndex: 2,
     },
 
     text: {
@@ -109,12 +111,15 @@ const styles = StyleSheet.create({
     },
 
     button: {
-    width:300,
-    height:300,
-    borderRadius: 20, 
-    backgroundColor: 'rgba(146, 146, 146, 0.75)',
+    flex:1,
+    height:'100%',
+    borderRadius: 10, 
+    borderWidth: 5,
+    borderColor: 'rgb(255, 255, 255)',
+    backgroundColor: 'rgba(146, 146, 146, 1)',
     justifyContent: 'center',
-    padding:6,
+    padding:3,
+    zIndex:0,
     },
    
     buttonText: {
@@ -123,7 +128,11 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',
+    textShadowColor: 'rgba(1,1,1,1)',
+    textShadowRadius: 10,
+    textShadowOffset: {width: 2, height:2},
     padding: 0,
+    // transform: 'rotate(-10deg)',
   }
  
 })
