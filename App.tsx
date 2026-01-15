@@ -1,3 +1,4 @@
+//second commit test!
 import React, { useState, useEffect } from 'react';
 import {
 	Button,
@@ -67,7 +68,7 @@ const saveImage = async (uri: string) => {
 	await ensureDirExists();
 	const filename = new Date().getTime() + '.jpeg';
 	const dest = imgDir + filename;
-	await FileSystem.copyAsync({ from: uri, to: dest });
+	await OldFS.copyAsync({ from: uri, to: dest });
 	setImages([...images, dest]);
 };
 
