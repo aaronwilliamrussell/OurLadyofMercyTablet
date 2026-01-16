@@ -10,44 +10,8 @@ import {
 	FlatList,
     ImageBackground
 } from 'react-native';
-import * as FileSystem from 'expo-file-system/legacy';
-import { Paths, File, Directory} from 'expo-file-system';
-
-const cDrive = FileSystem.documentDirectory + 'Internal/'
-
-const internal = new Directory(Paths.document, 'Internal/')
-
-//This is the depreceated function to see if the c drive exists. For fun. 
-const ensureUSBEntered = async () => {
-    const dirInfo = await FileSystem.getInfoAsync(cDrive);
-    console.log ("here's the info on the directory:" + dirInfo);
-    if (dirInfo.exists || dirInfo.isDirectory) {
-        console.log("The drive exists!");
-    }
-    else {
-        console.log ("Where tf that drive at");
-    }
-}
-
-// This is the new function. Going to try it out just in case
-const ensureInternal = async () => {
-    if(internal.exists){
-        console.log("Internal storage detected!")
-    }
-    else {
-        console.log("Nope. Didn't work. Let's try something else")
-    }
-}
-
-const sayHello = async () => {
-    console.log("hey just checking in. gotta make sure I can be called without useEffect or whatever")
-}
-
 
 export default function Home () {
-    sayHello();
-    ensureUSBEntered();
-    ensureInternal();
     return (
         <View style = {styles.banner}>
            {/* Index banner */}
