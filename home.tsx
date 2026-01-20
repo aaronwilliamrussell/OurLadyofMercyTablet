@@ -12,14 +12,53 @@ import {
     Modal
 } from 'react-native';
 
+import Ionicons from "@expo/vector-icons/Ionicons";
+
 export default function Home () {
 
-    //Open modal for admin mode
+    //Functions for showing and hiding elements
     const[visible, setVisible] = useState(false);
     const show = () => setVisible(true);
     const hide = () => setVisible(false);
-    
 
+    //Functions for login/logout states 
+    const [loggedIn, setLoggedIn] = useState(false);
+    const logIn = () => setLoggedIn(true);
+    const logOut = () => setLoggedIn(false);
+    const [adminButtonText, setText] = useState("Admin");
+    
+    //Function to log in (add the NFC stuff later!)
+    const adminLogIn = () => {
+        
+        if (!loggedIn){
+            logIn();
+            console.log("You're logged in!");
+            //change admin button to say "log out"
+            setText("Logout");
+            //hide modal
+            hide();
+            //somehow store locally that the user is logged in
+        }                     
+    }
+
+    //Function that changes what the admin button does depending on if an admin is logged in or not
+    const adminToggle = () => {
+        if(loggedIn){
+            logOut();
+            console.log("You're logged out!");
+            //change admin button to say "admin" again
+            setText("Admin");
+            //Pop up to say "logged out"?
+
+            //change local variable of user login to 'false'
+        }
+        else{
+            show();
+        }
+    }
+   
+    
+   
     return (
         <View style = {styles.banner}>
            {/* Index banner */}
@@ -119,8 +158,8 @@ export default function Home () {
               </View>
               
         {/* Administrative button */}
-        <Pressable style = {styles.adminButton} onPress={show}>
-        <Text style = {styles.buttonText}>Admin</Text> 
+        <Pressable style = {styles.adminButton} onPress={adminToggle}>
+        <Text style = {styles.buttonText}>{adminButtonText}</Text> 
         </Pressable>
 
         {/*Administrative modal*/}
@@ -132,7 +171,11 @@ export default function Home () {
             transparent>
                 <Pressable style = {styles.adminModalUpper} onPress = {hide}/>
                 <View style= {styles.adminModalLower}>
-                    <Text>I'm a modal! I think..</Text>
+                    <Text style = {styles.text}>Tap your security card here!</Text>
+                    <Ionicons name = "radio-outline" style = {styles.text}></Ionicons>
+                    <Pressable style = {styles.tempButton} onPress= {adminLogIn}>
+                        <Text style = {styles.buttonText}>...or just click here because we don't have an NFC method yet</Text>
+                    </Pressable>
                 </View>
             </Modal>
         </View>
@@ -152,6 +195,10 @@ const styles = StyleSheet.create({
     flex:1,
     flexDirection: 'row',
     flexWrap: "wrap",
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 10,
+    marginRight: 10
     },
 
     image:{
@@ -159,6 +206,10 @@ const styles = StyleSheet.create({
     height:256,
     marginBottom:2,
     zIndex:1,
+    shadowColor: 'rgb(0, 0, 0)',
+    shadowOffset: {width:10, height:10},
+    shadowRadius: 2,
+
     },
 
     image002:{
@@ -171,7 +222,6 @@ const styles = StyleSheet.create({
 
     text: {
     color:"black",
-    fontFamily: "impact",
     fontSize: 42,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -180,24 +230,20 @@ const styles = StyleSheet.create({
     button: {
     flex:1,
     height:'100%',
-    borderRadius: 30, 
-    borderWidth: 2,
-    borderColor: 'rgb(255, 255, 255)',
-    backgroundColor: 'rgb(255, 255, 255)',
     justifyContent: 'center',
     padding:3,
     zIndex:0,
-    shadowColor: 'rgb(110, 110, 110)',
-    shadowOffset: {width:2, height:2},
-    shadowRadius: 10
+  
     },
 
     buttonImage:{
     flex:1,
     resizeMode:"cover",
     justifyContent:'center',
-    borderRadius: 30
-    
+    borderRadius: 30,
+    shadowColor: 'rgba(110, 110, 110, 0.51)',
+    shadowOffset: {width:2, height:2},
+    shadowRadius: 10,
     },
    
     buttonText: {
@@ -217,8 +263,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top:5,
     right:5,
-    height:'8%',
-    width:'8%',
+    height:'auto',
+    width:'auto',
     borderRadius: 30, 
     borderColor: 'rgb(255, 255, 255)',
     backgroundColor: 'rgba(161, 161, 161, 0.7)',
@@ -235,11 +281,22 @@ const styles = StyleSheet.create({
 
   adminModalLower:{
     flex: 1, 
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  tempButton:{
+    position: 'relative',
+    margin:50,
+    padding: 10,
+    height:'auto',
+    width:'auto',
+    borderRadius: 30, 
+    borderColor: 'rgba(255, 255, 255, 0)',
+    backgroundColor: 'rgb(68, 71, 241)',
+    zIndex:3
   }
 
-
-
- 
 })
 
