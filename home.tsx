@@ -69,6 +69,7 @@ export default function Home () {
             //  this link is a placeholder
               source={{uri: 'https://media.sketchfab.com/models/a1e63357f3fa4a8d9a310db3ae35c2fb/thumbnails/91123f9d8d614f8b99011ac454045e76/0b8997d7bede43a785f7d8b060fcdbce.jpeg'}}
               style = {styles.buttonImage}
+              imageStyle={{borderRadius:30}}
               >
              <Text style = {styles.buttonText}>3D Models </Text> 
              </ImageBackground>
@@ -96,6 +97,7 @@ export default function Home () {
             //  this link is a placeholder
               source={{uri: 'https://scontent.fyhz1-1.fna.fbcdn.net/v/t1.6435-9/42854466_1860628977349207_3131969244065955840_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=B6BLnkjbNwcQ7kNvwHA-len&_nc_oc=AdlXuguWEbpeLqCUtk5NFH84mTuz1GXYmtVW7eZSVK0u0p8hpomC5gYBNGIkRL28jjo&_nc_zt=23&_nc_ht=scontent.fyhz1-1.fna&_nc_gid=mJa9c2kbIu0itzaRf8EocA&oh=00_AfpkrZuZE9iAqRH-w7-2f1t42MRua-MEl4w3eSOv8Ns9rw&oe=69960D5A'}}
               style = {styles.buttonImage}
+              imageStyle={{borderRadius:30}}
               >
              <Text style = {styles.buttonText}>Events </Text> 
              </ImageBackground>
@@ -109,6 +111,7 @@ export default function Home () {
             //  this link is a placeholder
               source={{uri: 'https://miro.medium.com/v2/resize:fit:1400/1*GdJ-q8rJqOk4xbg0GXIBvg.jpeg'}}
               style = {styles.buttonImage}
+              imageStyle={{borderRadius:30}}
               >
              <Text style = {styles.buttonText}>Guestbook </Text> 
              </ImageBackground>
@@ -198,7 +201,7 @@ const styles = StyleSheet.create({
     },
    
     buttonText: {
-    color:'rgba(255, 255, 255, 0.75)',
+    color:'rgba(255, 255, 255, 0.96)',
     fontFamily: "arial",
     fontSize: 30,
     fontWeight: 'bold',
