@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgb(255, 255, 255)',
     backgroundColor: 'rgba(161, 161, 161, 0.7)',
     justifyContent: 'center',
-    padding:3,
+    padding:6,
     zIndex:3
   },
 
