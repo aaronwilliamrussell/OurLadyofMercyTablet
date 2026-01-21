@@ -64,11 +64,11 @@ export default function Home () {
            {/* Index banner */}
               <Image
               style = {styles.image002}
-              source={require('./assets/index/logo.png')}
+              source={require('../assets/index/logo.png')}
               />
               <Image
               style = {styles.image}
-              source={require('./assets/index/olom001.jpg')}
+              source={require('../assets/index/olom001.jpg')}
               />   
               
               <View style = {styles.grid}>
