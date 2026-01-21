@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'expo-router';
 import {
 	Button,
 	Image,
@@ -9,7 +10,7 @@ import {
 	Text,
 	FlatList,
     ImageBackground,
-    Modal
+    Modal,
 } from 'react-native';
 
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -75,8 +76,8 @@ export default function Home () {
         
         {/* Main Page Buttons     */}
         {/* Photos */}
-            {/* <Link href = "/photos" style={{marginHorizontal:'auto'}} asChild> */}
-            <Pressable style = {styles.button}>
+            <Link href = "/photos" style={{marginHorizontal:'auto'}} asChild>
+            <Pressable style = {styles.button} >
              <ImageBackground
             //  this link is a placeholder
               source={{uri: 'https://historicplacesdays.ca/wp-content/uploads/2019/07/4C039F93-975D-485C-A26E-A14F56A79E1C.png'}}
@@ -85,7 +86,8 @@ export default function Home () {
               >
              <Text style = {styles.buttonText}>Photos </Text> 
              </ImageBackground>
-            </Pressable>   
+            </Pressable>
+            </Link>   
         
         {/* Videos*/}
         {/* <Link href = "/videos" style={{marginHorizontal:'auto'}} asChild> */}
